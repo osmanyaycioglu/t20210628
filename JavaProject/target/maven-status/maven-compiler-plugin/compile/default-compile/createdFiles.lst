@@ -1,0 +1,12 @@
+com\training\java\MyObjectExt.class
+com\training\java\ReflectionRun.class
+com\training\java\RunMe.class
+com\training\java\MyObject.class
+com\training\java\prop\PropertyRun.class
+com\training\java\MyAnno.class
+com\training\java\prop\with\anno\PropFile.class
+com\training\java\prop\MyAppConfig.class
+com\training\java\prop\MyAppConfig2.class
+com\training\java\prop\with\anno\Prop.class
+com\training\java\prop\with\anno\PropEngine.class
+com\training\java\prop\with\anno\PropAnnoRun.class
