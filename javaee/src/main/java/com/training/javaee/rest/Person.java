@@ -1,11 +1,21 @@
 package com.training.javaee.rest;
 
+import javax.ws.rs.PathParam;
+import javax.ws.rs.QueryParam;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
+// @XmlAccessorType(XmlAccessType.FIELD)
 public class Person {
 
+    @QueryParam("isim")
+    //@XmlElement(name = "isim")
     private String  name;
+    @QueryParam("soyisim")
     private String  surname;
+    @PathParam("he")
     private Integer height;
+    @PathParam("we")
     private Integer weight;
 
     public String getName() {
