@@ -1,9 +1,11 @@
-package com.training.javaee.rest;
+package com.training.javaee.ws;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
+
+import com.training.javaee.rest.Person;
 
 @WebService(targetNamespace = "http://training.turkcell.com")
 public class PersonWs {
