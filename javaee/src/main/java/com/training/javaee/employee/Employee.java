@@ -7,6 +7,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 
+import com.training.javaee.employee.custom.validation.StartWith;
+
 public class Employee {
 
     @NotEmpty(message = "username boş olamaz")
@@ -14,8 +16,10 @@ public class Employee {
     private String username;
     @Size(min = 2, max = 20, message = "name 2 ile 20 arasında olmalı")
     private String name;
+    @StartWith("sur:")
     @NotNull
     private String surname;
+    @StartWith("dep:")
     private String department;
     @Positive
     @Max(300)
