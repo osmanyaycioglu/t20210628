@@ -10,6 +10,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
 
 import com.training.javaee.cdi.IProcess;
+import com.training.javaee.cdi.interceptor.CallMe;
 
 @Path("/v1/calc2")
 @RequestScoped
@@ -25,6 +26,9 @@ public class CalcTestRest implements Serializable {
     @Named("dyn")
     private IProcess          dynProcess;
 
+    @Inject
+    private CallMe            callMe;
+
     @Path("/dyn")
     @GET
     public String dyn(@QueryParam("val1") final Integer val1,
@@ -35,4 +39,14 @@ public class CalcTestRest implements Serializable {
                + " counter : "
                + this.counter++;
     }
+
+    @Path("/interceptor")
+    @GET
+    public String interceptor(@QueryParam("val1") final String val1,
+                              @QueryParam("val2") final Integer val2) {
+        return "Sonuç : "
+               + this.callMe.doSomething(val1,
+                                         val2);
+    }
+
 }

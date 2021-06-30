@@ -5,4 +5,7 @@
  <alternatives>
   <class>com.training.javaee.cdi.SubsProcess2</class>
  </alternatives>
+ <interceptors>
+  <class>com.training.javaee.cdi.interceptor.AraKatmanInter</class>
+ </interceptors>
 </beans>
