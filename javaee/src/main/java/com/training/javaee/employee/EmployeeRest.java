@@ -1,5 +1,7 @@
 package com.training.javaee.employee;
 
+import java.util.Set;
+
 import javax.ejb.EJB;
 import javax.validation.Valid;
 import javax.ws.rs.GET;
@@ -21,6 +23,14 @@ public class EmployeeRest {
         //                            .isEmpty()) {
         //            throw new IllegalArgumentException("username boş olamaz");
         //        }
+        employeeParam.getEmployeeAddress()
+                     .setEmployee(employeeParam);
+        Set<EmployeePhone> employeePhonesLoc = employeeParam.getEmployeePhones();
+        if (employeePhonesLoc != null) {
+            for (EmployeePhone employeePhoneLoc : employeePhonesLoc) {
+                employeePhoneLoc.setEmployee(employeeParam);
+            }
+        }
         boolean addLoc = this.employeeProvisionService.add(employeeParam);
         if (addLoc) {
             return "SUCCESS";
@@ -32,7 +42,8 @@ public class EmployeeRest {
     @Path("/get/{username}")
     @GET
     public Employee get(@PathParam("username") final String username) {
-        return this.employeeProvisionService.get(username);
+        return null;
+        //        return this.employeeProvisionService.get(username);
     }
 
 }
