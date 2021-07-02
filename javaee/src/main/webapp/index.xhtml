@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head></h:head>
+<h:body>
+	<h:form>
+		<h:panelGrid columns="2">
+			<h:outputText value="Name" />
+			<h:inputText value="#{indexBean.str}" />
+
+			<h:outputText value="Index" />
+			<h:selectOneMenu value="#{indexBean.choice}" required="true">
+				<f:selectItem itemValue="#{null}" />
+				<f:selectItem itemValue="One" />
+				<f:selectItem itemValue="Two" />
+				<f:selectItem itemValue="Three" />
+				<f:ajax event="click"></f:ajax>
+			</h:selectOneMenu>
+
+			<h:commandButton value="submit">
+				<f:ajax execute="@form" render="ouputp" />
+			</h:commandButton>
+
+		</h:panelGrid>
+		<h:panelGrid id="ouputp" columns="1">
+			<h:outputText id="output" value="#{indexBean.str}" />
+			<h:outputText id="output2" value="#{indexBean.choice}" />
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>
