@@ -22,11 +22,24 @@ public class EmployeeDao {
     @PersistenceContext(unitName = "javaee")
     private EntityManager em;
 
+    //    @Inject
+    //    private UserTransaction ut;
+
     //    @PersistenceUnit(unitName = "javaee")
     //    private EntityManagerFactory emf;
 
-    @Transactional
+    @Transactional(Transactional.TxType.REQUIRED)
     public void insert(final Employee employeeParam) {
+        this.em.persist(employeeParam); // Managed
+    }
+
+    @Transactional(Transactional.TxType.SUPPORTS)
+    public void insert2(final Employee employeeParam) {
+        this.em.persist(employeeParam); // Managed
+    }
+
+    @Transactional(Transactional.TxType.REQUIRED)
+    public void insert3(final Employee employeeParam) {
         this.em.persist(employeeParam); // Managed
     }
 
